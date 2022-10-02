@@ -9,7 +9,9 @@ const getById = (id) => {
 };
 
 const create = (car) => {
-  return db('cars').insert(car);
+  return db('cars')
+    .insert(car)
+    .then(([id]) => getById(id));
 };
 
 module.exports = {
